@@ -1,7 +1,5 @@
 # docs
 
-
-
 Built using [Docusaurus 2](https://docusaurus.io/).
 
 ### Installation
