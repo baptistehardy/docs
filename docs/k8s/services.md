@@ -19,7 +19,7 @@ From the viewpoint of the service :
 
 Node:30080 (NodePort) <=> Service Port 80 (Port) <=> Pod:80 (Target Port)
 
-The NodePort has a range of 30000-32767
+The NodePort has a range of 30000-32767.
 
 If multiple pods are selected by the service by default:
 - Algorithm: Random
@@ -48,7 +48,7 @@ spec:
 
 ### ClusterIP
 
-A single interface to access a group of pods (back-end, front-end, redis, database etc)
+A **single interface** to access a group of pods (back-end, front-end, redis, database etc)
 
 ```yaml title="service-definition.yml"
 apiVersion: v1
@@ -70,7 +70,7 @@ spec:
 
 Can replace a separate NGINX server for load balancing/reverse proxy.
 
-Only works with supported cloud platforms, otherwise it will work as a NodePort service.
+Only works with supported **cloud platforms**, otherwise it will work as a NodePort service.
 
 ```yaml title="service-definition.yml"
 apiVersion: v1
@@ -101,4 +101,10 @@ kubectl get services
 
 ```shell title="Describe services"
 kubectl describe services service-name
+```
+
+<br/>
+
+```shell title="Expose a pod with a service"
+kubectl expose pod pod-name --port=port --name=service-name
 ```

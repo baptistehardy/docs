@@ -62,3 +62,9 @@ kubectl create deployment --image=nginx nginx --dry-run=client -o yaml
 ```shell title="Generate a deployment manifest YAML file with 4 replicas"
 kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml
 ```
+
+## kubectl apply
+
+Creates the object if it doesn't already exist.
+
+A **last applied configuration** file in JSON is stored by Kubernetes as an **annotation** in the live object configuration to compare the local file and the live object configuration.

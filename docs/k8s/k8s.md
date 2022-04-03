@@ -3,4 +3,6 @@ title: k8s
 slug: introduction
 ---
 
-k8s index
+Rappels pour la certification :
+
+- Bien étudié la façon impérative de déclaration des objets
