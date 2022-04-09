@@ -68,3 +68,9 @@ kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o y
 Creates the object if it doesn't already exist.
 
 A **last applied configuration** file in JSON is stored by Kubernetes as an **annotation** in the live object configuration to compare the local file and the live object configuration.
+
+## kubectl set
+
+```shell
+kubectl set image deployment/myapp-deployment container-name=image-name
+```
