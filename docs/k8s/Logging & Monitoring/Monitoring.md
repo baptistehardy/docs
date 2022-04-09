@@ -1,5 +1,5 @@
 ---
-title: Monitoring Cluster Components
+title: Monitoring
 ---
 
 Monitoring **node**-level metrics and **pods** level-metrics:
