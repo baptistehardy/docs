@@ -16,4 +16,20 @@ In a `Dockerfile`, `CMD` has to either be a **shell command** (`CMD sleep 5`) or
 argument is the **executable/command** (`CMD ["sleep", "5"]`).
 
 You can use `ENTRYPOINT` (`ENTRYPOINT ["sleep"]`) command in the _Dockerfile_ then append the number of seconds 
-in the command line (also using `--entrypoint`). You can _also_ use `CMD` afterwards to set a **default value**.
+in the command line (also using `--entrypoint`). You can _also_ use `CMD` afterwards to set a **default value** 
+(`CMD ["5"]`).
+
+## Arguments
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-custom-pod
+spec:
+  containers:
+    - name: ubuntu-custom
+      image: ubuntu-custom
+      args: ["10"] # Overrides CMD value
+      command: ["new-sleep-command"] # Overrides ENTRYPOINT value
+```
