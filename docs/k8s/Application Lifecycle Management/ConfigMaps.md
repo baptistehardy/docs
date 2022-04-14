@@ -30,7 +30,7 @@ data:
 kubectl create -f config-map.yml
 ```
 
-## In a Pod definition
+## Using in a Pod definition
 
 ### Entire ConfigMap
 
