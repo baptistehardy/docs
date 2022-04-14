@@ -4,8 +4,6 @@ title: Secrets
 
 **Secrets** are **encoded/hashed** ConfigMaps.
 
-They **NEED** to be hashed with _base64_.
-
 You can also use tools like **Helm Secrets** and **HashiCorp Vault** to protect secrets.
 
 ## Encoding
@@ -24,13 +22,13 @@ echo -n 'cGFzc3dvcmQ=' | base64 --decode
 ## Imperative
 
 ```shell title="Create a Secret"
-kubectl create secret secret-name \
+kubectl create secret generic secret-name \
     --from-literal=DB_PASSWORD=cGFzc3dvcmQ=
     --from-literal=APP_SECRET=e6ef478se4f87rg984dr5115sezf8
 ```
 
 ```shell title="Create a Secret with a file"
-kubectl create secret secret-name --from-file=app.env
+kubectl create secret generic secret-name --from-file=app.env
 ```
 
 ## Declarative
@@ -40,6 +38,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: app-secret
+type: Opaque
 data:
   DB_PASSWORD: cGFzc3dvcmQ=
   APP_SECRET: e6ef478se4f87rg984dr5115sezf8
