@@ -33,11 +33,10 @@ metadata:
 spec:
   groups:
     - system:authenticated
-  usages:
-    - digital signature
-    - key encipherment
-    - server auth
   request: # cat nicolas.csr | base64 | tr -d "\n"
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+  - server auth
 ```
 
 ```shell title="List requests"
@@ -53,3 +52,6 @@ kubectl get csr nicolas -o yaml
 ```
 
 You'll need to use `base64 --decode` on the `certificate` field from the last command.
+
+You can deny a request with `kubectl certificate deny [request-name]` and delete it with `kubectl delete csr 
+[request-name]`.
