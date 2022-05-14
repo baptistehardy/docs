@@ -2,6 +2,8 @@
 title: RBAC
 ---
 
+RBAC is **namespaced**.
+
 ```yaml title="developer-role.yml"
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
