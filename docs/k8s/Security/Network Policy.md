@@ -51,6 +51,11 @@ spec:
       - podSelector:
           matchLabels:
             name: api-pod
+      - namespaceSelector:
+          matchLabels:
+            name: prod
+      - ipBlock:
+          cidr: 192.168.1.0/24
       ports:
         - protocol: TCP
           port: 5432
