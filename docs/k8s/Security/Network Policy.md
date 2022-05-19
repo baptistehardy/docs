@@ -46,6 +46,7 @@ spec:
       role: db
   policyTypes:
     - Ingress
+    - Egress
   ingress:
     - from:
       - podSelector:
@@ -59,4 +60,11 @@ spec:
       ports:
         - protocol: TCP
           port: 5432
+  egress:
+    - to:
+      - ipBlock:
+          cidr: 192.168.2.10/24
+      ports:
+        - protocol: TCP
+          port: 80
 ```
