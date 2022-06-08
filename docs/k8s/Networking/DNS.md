@@ -16,5 +16,6 @@ You can also access the service via `curl http://web-service.apps.svc.cluster.lo
 - Type: `svc` (for service)
 - Root (by default): `cluster.local` 
 
-*Pods*, on the other hand, have DNS entries that correspond to their IP address with the dots replaced by dashes (`curl 
-http://10-165-57-5.apps.pod.cluster.local`). 
+*Pods*, on the other hand, can have DNS entries that correspond to their IP address with the dots replaced by dashes 
+(`curl 
+http://10-165-57-5.apps.pod.cluster.local`), it needs to be enabled in *CoreDNS*.
