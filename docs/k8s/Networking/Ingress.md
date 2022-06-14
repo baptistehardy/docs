@@ -162,6 +162,47 @@ spec:
               servicePort: 80
 ```
 
+## Annotations
+
+### rewrite-target
+
+```yaml
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: test-ingress
+      namespace: critical-space
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+    spec:
+      rules:
+      - http:
+          paths:
+          - path: /path1
+            backend:
+              serviceName: path1-service
+              servicePort: 8080
+```
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite
+  namespace: default
+spec:
+  rules:
+  - host: subdomain1.domain.com
+    http:
+      paths:
+      - backend:
+          serviceName: http-svc
+          servicePort: 80
+        path: /path(/|$)(.*)
+```
+
 ## Commands
 
 ```yaml title="Imperative ingress creation command"
